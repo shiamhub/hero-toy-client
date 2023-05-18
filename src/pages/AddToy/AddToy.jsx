@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import swal from "sweetalert";
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
@@ -16,23 +17,36 @@ const AddToy = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
 
-        console.log({email, sellerName, name, image, rating, quantity, category, price, description});
+        console.log({ email, sellerName, name, image, rating, quantity, category, price, description });
 
         const addAToy = {
             email, sellerName, name, image, rating, quantity, category, price, description
         }
-
-        fetch('http://localhost:5000/addToy', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(addAToy)
+        swal({
+            title: "Good job!",
+            text: "Add a toy successfully!",
+            icon: "success",
+            button: "OK!",
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then((ok) => {
+                if (ok) {
+                    fetch('http://localhost:5000/addToy', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(addAToy)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+
+                        })
+                }
+
             })
+
+
 
     }
 
