@@ -24,7 +24,7 @@ const Navbar = () => {
                 <li><a>Add A Toy</a></li>
             </>
         }
-        <li><a>Blogs</a></li>
+        <li><Link to="/blogs">Blogs</Link></li>
     </>
 
     return (
@@ -55,13 +55,10 @@ const Navbar = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                            <li>{user.displayName}</li>
                             <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
+                                {user.email}
                             </li>
-                            <li><a>Settings</a></li>
                             <li onClick={handleLogout}>Logout</li>
                         </ul>
                     </div> : <Link to="/login" className="btn">Login</Link>

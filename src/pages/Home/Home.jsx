@@ -1,8 +1,10 @@
+import Category from "./Category";
 
 const Home = () => {
     return (
-        <div>
+        <div className="w-9/12 mx-auto">
             <h1>Home</h1>
+            <Category></Category>
         </div>
     );
 };

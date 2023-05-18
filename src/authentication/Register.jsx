@@ -1,14 +1,40 @@
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const from = e.target;
-        const name = from.name.value;
-        const photo = from.photo.value;
-        const email = from.email.value;
-        const password = from.password.value;
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
         console.log(name, photo, email, password);
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                updateUserData(user, name, photo);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+    }
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+            .then(() => {
+                
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+            
     }
 
     return (
@@ -37,7 +63,7 @@ const Register = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                    
+
                 </div>
                 <div className="form-control mt-6">
                     <input type="submit" className="btn btn-primary" value="Register" />

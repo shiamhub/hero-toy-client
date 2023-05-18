@@ -5,6 +5,9 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllToys from "../pages/AllToys/AllToys";
 import Login from "../authentication/Login";
 import Register from "../authentication/Register";
+import Blogs from "../pages/Blogs/Blogs";
+import PrivateRoute from "./PrivateRoute";
+import ViewDetails from "../shared/ViewDetails";
 
 const Routes = createBrowserRouter([
     {
@@ -28,6 +31,15 @@ const Routes = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'blogs',
+                element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
+            },
+            {
+                path: 'viewDetails/:id',
+                element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://assignment-11-server-alpha-seven.vercel.app/allToys/${params.id}`)
             }
         ]
     }

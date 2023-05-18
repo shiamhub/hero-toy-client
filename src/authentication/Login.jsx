@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { googleLogin } = useContext(AuthContext);
+    const { googleLogin, login, user } = useContext(AuthContext);
+    const navigation = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
 
     const handleWithGoogleLogin = () => {
         googleLogin()
@@ -11,17 +16,31 @@ const Login = () => {
                 console.log(result.user);
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error.message);
             })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const from = e.target;
-        const email = from.email.value;
-        const password = from.password.value;
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
         console.log(email, password);
+        login(email, password)
+            .then((result) => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
+
+    useEffect(() => {
+        if (user) {
+            navigation(from, { replace: true });
+        }
+    }, [user])
 
     return (
         <div>
@@ -37,22 +56,22 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email"  placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                                
+
                             </div>
                             <div className="form-control mt-6">
                                 <input type="submit" className="btn btn-primary" value="Login" />
                             </div>
                             <div className="divider">OR</div>
                             <p>New Account for <Link to="/register">Register</Link></p>
-                            <button onClick={handleWithGoogleLogin} className="btn btn-outline">Continue with google</button>
                         </form>
+                        <button onClick={handleWithGoogleLogin} className="btn btn-outline mx-8 mb-10">Continue with google</button>
                     </div>
                 </div>
             </div>
