@@ -9,7 +9,7 @@ const Category = () => {
   const [show, setShow] = useState(false);
 
   const handleCategory = (e) => {
-    fetch(`http://localhost:5000/allToy/${e.target.innerText}`)
+    fetch(`https://assignment-11-server-alpha-seven.vercel.app/allToy/${e.target.innerText}`)
       .then((res) => res.json())
       .then((data) => setCategory(data));
 
@@ -20,7 +20,7 @@ const Category = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/allToys')
+    fetch('https://assignment-11-server-alpha-seven.vercel.app/allToys')
       .then((res) => res.json())
       .then((data) => setAllCategory(data));
   }, [])
@@ -90,7 +90,7 @@ const Category = () => {
       </Tabs>
       <div className={`grid grid-cols-5 gap-8 ${show ? 'hidden' : 'block'}`}>
         {
-          allCategory.map(a => <div key={a._id} className="card bg-base-100 shadow-xl">
+          allCategory.map(a => <div data-aos="flip-left" data-aos-duration="2000" key={a._id} className="card bg-base-100 shadow-xl">
             <figure><img src={a.image} alt="Shoes" /></figure>
             <div className="card-body">
               <h2 className="card-title">Shoes!</h2>
