@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
     const data = useLoaderData();
+    console.log(data);
 
     const handleDetails = (id) => {
         console.log(id);
@@ -29,7 +30,7 @@ const AllToys = () => {
                                 <td>{a.category}</td>
                                 <td>{a.quantity}</td>
                                 <td>{a.price}</td>
-                                <td><label onClick={() => handleDetails(a._id)} htmlFor="my-modal-3" className="btn text-center">View Details</label></td>
+                                <td className="text-center"><label onClick={() => handleDetails(a._id)} htmlFor="my-modal-3" className="btn btn-sm">View Details</label></td>
                             </tr>)
                         }
 

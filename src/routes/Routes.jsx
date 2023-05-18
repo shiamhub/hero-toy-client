@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AllToys from "../pages/AllToys/AllToys";
+import Login from "../authentication/Login";
 
 const Routes = createBrowserRouter([
     {
@@ -17,7 +18,11 @@ const Routes = createBrowserRouter([
             {
                 path: 'allToys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/allToys')
+                loader: () => fetch('https://assignment-11-server-alpha-seven.vercel.app/allToys')
+            },
+            {
+                path: 'login',
+                element: <Login></Login>
             }
         ]
     }
