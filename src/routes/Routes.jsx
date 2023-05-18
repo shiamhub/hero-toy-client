@@ -8,6 +8,8 @@ import Register from "../authentication/Register";
 import Blogs from "../pages/Blogs/Blogs";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../shared/ViewDetails";
+import AddToy from "../pages/AddToy/AddToy";
+import MyToys from "../pages/MyToys/MyToys";
 
 const Routes = createBrowserRouter([
     {
@@ -34,12 +36,20 @@ const Routes = createBrowserRouter([
             },
             {
                 path: 'blogs',
-                element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
+                element: <Blogs></Blogs>
             },
             {
                 path: 'viewDetails/:id',
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://assignment-11-server-alpha-seven.vercel.app/allToys/${params.id}`)
+            },
+            {
+                path: 'addToy',
+                element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
+            },
+            {
+                path: 'myToys',
+                element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
             }
         ]
     }

@@ -10,7 +10,8 @@ const AllToys = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
+                            <th>Toy Name</th>
+                            <th>Seller Name</th>
                             <th>Sub-category</th>
                             <th>Quantity</th>
                             <th>Price</th>
@@ -22,6 +23,7 @@ const AllToys = () => {
                             data.map((a, i) => <tr key={a._id} className="hover">
                                 <th>{i + 1}</th>
                                 <td>{a.name}</td>
+                                <td>{a.sellerName || 'none'}</td>
                                 <td>{a.category}</td>
                                 <td>{a.quantity}</td>
                                 <td>{a.price}</td>
