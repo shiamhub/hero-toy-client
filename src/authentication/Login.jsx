@@ -1,6 +1,8 @@
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { googleLogin, login, user } = useContext(AuthContext);
@@ -44,6 +46,7 @@ const Login = () => {
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">

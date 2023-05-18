@@ -2,7 +2,6 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
     const data = useLoaderData();
-    console.log(data);
 
     return (
         <div className="w-9/12 mx-auto">
