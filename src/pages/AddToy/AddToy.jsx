@@ -124,7 +124,7 @@ const AddToy = () => {
 
                 </div>
                 <div className="form-control mt-6">
-                    <input type="submit" className="btn btn-primary" value="Login" />
+                    <input type="submit" className="btn btn-primary" value="submit" />
                 </div>
 
             </form>

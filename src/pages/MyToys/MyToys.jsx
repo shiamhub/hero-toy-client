@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -35,8 +36,6 @@ const MyToys = () => {
                             const remainingData = myToy.filter(a => a._id !== id);
                             setMyToy(remainingData);
                         })
-                } else {
-                    swal("Your toy is safe!");
                 }
             });
     }
@@ -50,7 +49,7 @@ const MyToys = () => {
                         <h2 className="card-title">{a.name}</h2>
                         <p>Click the button to listen on Spotiwhy app.</p>
                         <div className="flex flex-row justify-end">
-                            <button className="btn btn-primary">Update</button>
+                            <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
                             <button onClick={() => handleDelete(a._id)} className="btn btn-primary ml-6">Delete</button>
                         </div>
                     </div>
