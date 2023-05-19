@@ -38,15 +38,18 @@ const Category = () => {
         <TabPanel></TabPanel>
 
         <TabPanel>
-          <div >
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
             {
-              category.map(a => <div key={a._id} className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={a.image} alt="Shoes" /></figure>
+              category.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
+                <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
                 <div className="card-body">
-                  <h2 className="card-title">Shoes!</h2>
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                  <h2 className="card-title">{a?.name}</h2>
+                  <p>Category: {a?.category}</p>
+                  <p>Price: {a?.price}$</p>
+                  <p>Quantity: {a?.quantity}</p>
+                  <p>Rating: {a?.rating}</p>
+                  <div className="flex flex-row justify-end">
+                    <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
                   </div>
                 </div>
               </div>)
@@ -92,15 +95,17 @@ const Category = () => {
         {
           allCategory.map(a => <div data-aos="flip-left" data-aos-duration="2000" key={a._id} className="card card-compact bg-base-100 shadow-xl">
             <figure><img src={a.image} alt="Shoes" /></figure>
-            <div className="card-body">
+            <div className="p-5">
               <h2 className="card-title">{a.name}</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <p>Category: {a.category}</p>
+              <p>Price: {a.price}$</p>
+              <p>Quantity: {a.quantity}</p>
+              <p>Rating: {a.rating}</p>
               <div className="card-actions justify-end">
                 <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
               </div>
             </div>
           </div>)
-
         }
       </div>
     </div>

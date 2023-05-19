@@ -57,11 +57,11 @@ const AllToys = () => {
                         {
                             toys?.map((a, i) => <tr key={a._id} className="hover">
                                 <th>{i + 1}</th>
-                                <td>{a.name}</td>
-                                <td>{a.sellerName || 'none'}</td>
-                                <td>{a.category}</td>
-                                <td>{a.quantity}</td>
-                                <td>{a.price}</td>
+                                <td>{a?.name}</td>
+                                <td>{a?.sellerName || 'none'}</td>
+                                <td>{a?.category}</td>
+                                <td>{a?.quantity}</td>
+                                <td>{a?.price}</td>
                                 <td className="text-center"><Link to={`/viewDetails/${a._id}`}><button className="btn btn-sm">View Details</button></Link></td>
 
                             </tr>)
