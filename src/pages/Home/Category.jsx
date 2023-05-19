@@ -56,8 +56,9 @@ const Category = () => {
                   <p>Price: {a?.price}$</p>
                   <p>Quantity: {a?.quantity}</p>
                   <p>Rating: {a?.rating}</p>
-                  <div className="flex flex-row justify-end">
+                  <div className="flex flex-row justify-between">
                     <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
+                    <button className="btn btn-primary">Buy Now</button>
                   </div>
                 </div>
               </div>)
@@ -76,8 +77,9 @@ const Category = () => {
                   <p>Price: {a?.price}$</p>
                   <p>Quantity: {a?.quantity}</p>
                   <p>Rating: {a?.rating}</p>
-                  <div className="flex flex-row justify-end">
+                  <div className="flex flex-row justify-between">
                     <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
+                    <button className="btn btn-primary">Buy Now</button>
                   </div>
                 </div>
               </div>)
@@ -96,8 +98,9 @@ const Category = () => {
                   <p>Price: {a?.price}$</p>
                   <p>Quantity: {a?.quantity}</p>
                   <p>Rating: {a?.rating}</p>
-                  <div className="flex flex-row justify-end">
+                  <div className="flex flex-row justify-between">
                     <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
+                    <button className="btn btn-primary">Buy Now</button>
                   </div>
                 </div>
               </div>)
@@ -105,18 +108,19 @@ const Category = () => {
           </div>
         </TabPanel>
       </Tabs>
-      <div className={`grid grid-cols-2 lg:grid-cols-5 gap-8 ${show ? 'hidden' : 'block'}`}>
+      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${show ? 'hidden' : 'block'}`}>
         {
-          allCategory.map(a => <div key={a._id} className="card card-compact bg-base-100 shadow-xl">
-            <figure><img src={a.image} alt="Shoes" /></figure>
-            <div className="p-5">
-              <h2 className="card-title">{a.name}</h2>
-              <p>Category: {a.category}</p>
-              <p>Price: {a.price}$</p>
-              <p>Quantity: {a.quantity}</p>
-              <p>Rating: {a.rating}</p>
-              <div className="card-actions justify-end">
+          allCategory.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
+            <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
+            <div className="card-body">
+              <h2 className="card-title">{a?.name}</h2>
+              <p>Category: {a?.category}</p>
+              <p>Price: {a?.price}$</p>
+              <p>Quantity: {a?.quantity}</p>
+              <p>Rating: {a?.rating}</p>
+              <div className="flex flex-row justify-between">
                 <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
+                <button className="btn btn-primary">Buy Now</button>
               </div>
             </div>
           </div>)

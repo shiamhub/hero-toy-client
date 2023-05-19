@@ -15,6 +15,7 @@ const MyToys = () => {
 
     useTitle("My Toys");
 
+
     const handleDelete = (id) => {
         swal({
             title: "Are you sure?",
@@ -55,9 +56,9 @@ const MyToys = () => {
                         <p>Price: {a?.price}$</p>
                         <p>Quantity: {a?.quantity}</p>
                         <p>Rating: {a?.rating}</p>
-                        <div className="flex flex-row justify-end">
+                        <div className="flex flex-row justify-between">
                             <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
-                            <button onClick={() => handleDelete(a._id)} className="btn btn-primary ml-6">Delete</button>
+                            <button onClick={() => handleDelete(a._id)} className="btn btn-primary">Delete</button>
                         </div>
                     </div>
                 </div>)
