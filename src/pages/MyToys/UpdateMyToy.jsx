@@ -3,11 +3,13 @@ import swal from "sweetalert";
 
 const UpdateMyToy = () => {
     const data = useLoaderData();
+    const id = data._id;
+    console.log(id);
     console.log(data);
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
         const quantity = form.quantity.value;
         const description = form.description.value;
 
@@ -15,7 +17,7 @@ const UpdateMyToy = () => {
             price, quantity, description
         }
         console.log(updateAToy);
-        fetch(`https://assignment-11-server-alpha-seven.vercel.app/updateMyToy/${data._id}`, {
+        fetch(`https://assignment-11-server-alpha-seven.vercel.app/updateMyToy/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

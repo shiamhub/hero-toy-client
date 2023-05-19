@@ -88,19 +88,19 @@ const Category = () => {
           </div>
         </TabPanel>
       </Tabs>
-      <div className={`grid grid-cols-5 gap-8 ${show ? 'hidden' : 'block'}`}>
+      <div className={`grid grid-cols-2 lg:grid-cols-5 gap-8 ${show ? 'hidden' : 'block'}`}>
         {
-          allCategory.map(a => <div data-aos="flip-left" data-aos-duration="2000" key={a._id} className="card bg-base-100 shadow-xl">
+          allCategory.map(a => <div data-aos="flip-left" data-aos-duration="2000" key={a._id} className="card card-compact bg-base-100 shadow-xl">
             <figure><img src={a.image} alt="Shoes" /></figure>
             <div className="card-body">
-              <h2 className="card-title">Shoes!</h2>
+              <h2 className="card-title">{a.name}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div className="card-actions justify-end">
                 <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
-
               </div>
             </div>
           </div>)
+
         }
       </div>
     </div>

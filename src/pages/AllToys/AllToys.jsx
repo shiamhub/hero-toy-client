@@ -1,19 +1,31 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
     const data = useLoaderData();
     const [toys, setToys] = useState(data);
     const [searchText, setSearchText] = useState("");
 
+    useTitle("All Toys");
+
     const handleSearch = () => {
         console.log(searchText);
-        fetch(`http://localhost:5000/searchAllToys/${searchText}`)
+        fetch(`https://assignment-11-server-alpha-seven.vercel.app/searchAllToys/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
             })
     }
+    const handleSort = () => [
+        fetch('https://assignment-11-server-alpha-seven.vercel.app/allToysSortByPrice')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setToys(data);
+            })
+    ]
+
 
     return (
         <div className="w-9/12 mx-auto">
@@ -26,7 +38,7 @@ const AllToys = () => {
                         </button>
                     </div>
                 </div>
-                <button className="btn btn-primary">Price Sort</button>
+                <button onClick={() => handleSort()} className="btn btn-primary">Price Sort</button>
             </div>
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -43,7 +55,7 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys.map((a, i) => <tr key={a._id} className="hover">
+                            toys?.map((a, i) => <tr key={a._id} className="hover">
                                 <th>{i + 1}</th>
                                 <td>{a.name}</td>
                                 <td>{a.sellerName || 'none'}</td>

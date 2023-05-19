@@ -7,8 +7,7 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
     const handleToast = () => {
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-        toast('View Details')
+        toast('You have to log in first to view details')
     }
 
     if (user) {
