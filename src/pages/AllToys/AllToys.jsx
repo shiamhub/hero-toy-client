@@ -6,6 +6,8 @@ const AllToys = () => {
     const data = useLoaderData();
     const [toys, setToys] = useState(data);
     const [searchText, setSearchText] = useState("");
+    const [show, setShow] = useState(false);
+    const [sort, setSort] = useState(false);
 
     useTitle("All Toys");
 
@@ -17,14 +19,26 @@ const AllToys = () => {
                 setToys(data);
             })
     }
-    const handleSort = () => [
-        fetch('https://assignment-11-server-alpha-seven.vercel.app/allToysSortByPrice')
+    const handleSort = () => {
+        setSort(true)
+        setShow(!show);
+        if(show) {
+            fetch('https://assignment-11-server-alpha-seven.vercel.app/allToysSortByAscending')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setToys(data);
             })
-    ]
+        }
+        else {
+            fetch('https://assignment-11-server-alpha-seven.vercel.app/allToysSortByDescending')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setToys(data);
+            })
+        }
+    }
 
 
     return (
@@ -38,7 +52,9 @@ const AllToys = () => {
                         </button>
                     </div>
                 </div>
-                <button onClick={() => handleSort()} className="btn btn-primary">Price Sort</button>
+                <button onClick={() => handleSort()} className="btn btn-primary">
+                    { sort ? show ? "Price Ascending Sort" : "Price Descending Sort" : "Sort by Price" }
+                </button>
             </div>
             <div className="overflow-x-auto">
                 <table className="table w-full">

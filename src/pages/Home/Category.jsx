@@ -53,7 +53,7 @@ const Category = () => {
 
 
   return (
-    <div>
+    <div className='mt-16'>
       <Tabs>
         <TabList className="flex gap-8">
           <Tab onClick={handleAllCategory}>All Toys</Tab>
@@ -150,7 +150,7 @@ const Category = () => {
           pageNumbers.map(a => <button key={a} className={`btn ${number === a ? 'btn-primary' : 'btn-outline'}`} onClick={() => setNumber(a)}>{a + 1}</button>)
         }
       </div>
-      <h1 className='text-center lg:text-5xl text-3xl lg:mb-10 mt-16 mb-6'>Hero Toy Gallery</h1>
+      <h1 className="text-center mt-12 mb-6 lg:my-12 font-bold lg:text-5xl text-2xl">Hero Toy Gallery</h1>
       <div className='grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16'>
         {
           gallery.slice(0, 8).map(a => <Gallery key={a._id} galleryImg={a}></Gallery>)
