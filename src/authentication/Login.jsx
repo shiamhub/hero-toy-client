@@ -4,6 +4,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+import { FcGoogle } from 'react-icons/fc';
+
+
 const Login = () => {
     const { googleLogin, login, user } = useContext(AuthContext);
     const [error, setError] = useState("");
@@ -80,7 +83,7 @@ const Login = () => {
                             <div className="divider">OR</div>
                             <p>New Account for <Link to="/register">Register</Link></p>
                         </form>
-                        <button onClick={handleWithGoogleLogin} className="btn btn-outline mx-8 mb-10">Continue with google</button>
+                        <button onClick={handleWithGoogleLogin} className="btn btn-outline mx-8 mb-10"><FcGoogle className="text-xl mr-3"></FcGoogle>Continue with google</button>
                     </div>
                 </div>
             </div>

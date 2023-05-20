@@ -34,7 +34,6 @@ const AllToys = () => {
             fetch('https://assignment-11-server-alpha-seven.vercel.app/allToysSortByDescending')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setToys(data);
             })
         }
