@@ -22,6 +22,15 @@ const Register = () => {
         else if(!/(?=.*[A-Z])/.test(password)) {
             return setError('Password must contain at least one uppercase letter');
         }
+        else if(!/(?=.*[a-z])/.test(password)) {
+            return setError('Password must contain at least one lowercase letter');
+        }
+        else if(!/(?=.*[0-9])/.test(password)) {
+            return setError('Password must contain at least one number');
+        }
+        else if(!/(?=.*[!@#$%^&*])/.test(password)) {
+            return setError('Password must contain at least one special character');
+        }
 
         createUser(email, password)
             .then((result) => {

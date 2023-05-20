@@ -7,7 +7,7 @@ import useTitle from "../../hooks/useTitle";
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToy, setMyToy] = useState([]);
-    
+
     useEffect(() => {
         fetch(`https://assignment-11-server-alpha-seven.vercel.app/myToys?email=${user?.email}`)
             .then(res => res.json())
@@ -45,25 +45,76 @@ const MyToys = () => {
             });
     }
 
+    const handleSortByAscending = () => {
+        // const sortedData = myToy.sort((a, b) => a.price - b.price);
+        // console.log(sortedData);
+        // setMyToy(sortedData);
+        fetch(`https://assignment-11-server-alpha-seven.vercel.app/myToysSortByAscending?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setMyToy(data));
+    }
+
+    const handleSortByDescending = () => {
+        fetch(`https://assignment-11-server-alpha-seven.vercel.app/myToysSortByDescending?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setMyToy(data));
+    }
+
     return (
-        <div className="w-9/12 mx-auto">
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-            {
-                myToy.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mt-10 rounded-xl">
-                    <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
-                    <div className="card-body">
-                        <h2 className="card-title">{a?.name}</h2>
-                        <p>Category: {a?.category}</p>
-                        <p>Price: {a?.price}$</p>
-                        <p>Quantity: {a?.quantity}</p>
-                        <p>Rating: {a?.rating}</p>
-                        <div className="flex flex-row justify-between">
-                            <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
-                            <button onClick={() => handleDelete(a._id)} className="btn btn-primary">Delete</button>
+        <div className="w-9/12 mx-auto mb-16">
+            <div className="lg:flex gap-6 my-16">
+                <button onClick={() => handleSortByAscending()} className="btn btn-primary">Sort By Price Ascending</button>
+                <button onClick={() => handleSortByDescending()} className="btn btn-primary mt-6 lg:mt-0">Sort By Price Descending</button>
+            </div>
+            {/* <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+                {
+                    myToy.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mt-10 rounded-xl">
+                        <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
+                        <div className="card-body">
+                            <h2 className="card-title">{a?.name}</h2>
+                            <p>Category: {a?.category}</p>
+                            <p>Price: {a?.price}$</p>
+                            <p>Quantity: {a?.quantity}</p>
+                            <p>Rating: {a?.rating}</p>
+                            <div className="flex flex-row justify-between">
+                                <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
+                                <button onClick={() => handleDelete(a._id)} className="btn btn-primary">Delete</button>
+                            </div>
                         </div>
-                    </div>
-                </div>)
-            }
+                    </div>)
+                }
+            </div> */}
+            <div className="overflow-x-auto">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Toy Name</th>
+                            <th>Seller Name</th>
+                            <th>Sub-category</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th className="text-center">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            myToy?.map((a, i) => <tr key={a._id} className="hover">
+                                <th>{i + 1}</th>
+                                <td>{a?.name}</td>
+                                <td>{a?.sellerName || 'none'}</td>
+                                <td>{a?.category}</td>
+                                <td>{a?.quantity}</td>
+                                <td>{a?.price}$</td>
+                                <td className="text-center">
+                                    <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
+                                    <button onClick={() => handleDelete(a._id)} className="btn btn-primary ml-3">Delete</button>
+                                </td>
+
+                            </tr>)
+                        }
+                    </tbody>
+                </table>
             </div>
 
         </div>
