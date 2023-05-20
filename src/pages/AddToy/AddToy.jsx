@@ -51,20 +51,22 @@ const AddToy = () => {
     }
 
     return (
-        <div>
+        <div className="bg-base-200">
             <form onSubmit={handleSubmit} className="card-body w-9/12 mx-auto">
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Seller Name</span>
-                    </label>
-                    <input type="text" name="sellerName" defaultValue={user?.displayName} className="input input-bordered" required />
+                <div className="lg:flex gap-8">
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Seller Name</span>
+                        </label>
+                        <input type="text" name="sellerName" defaultValue={user?.displayName} className="input input-bordered" required />
 
-                </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Seller Email</span>
-                    </label>
-                    <input type="text" name="email" defaultValue={user?.email} className="input input-bordered" required />
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text">Seller Email</span>
+                        </label>
+                        <input type="text" name="email" defaultValue={user?.email} className="input input-bordered" required />
+                    </div>
                 </div>
                 <div className="form-control">
                     <label className="label">
@@ -80,7 +82,7 @@ const AddToy = () => {
                     <input type="url" name="photoURL" placeholder="photoURL" className="input input-bordered" required />
 
                 </div>
-                <div className="flex gap-8">
+                <div className="lg:flex gap-8">
                     <div className="w-full">
                         <label className="label">
                             <span className="label-text">Toy Category</span>
@@ -99,7 +101,7 @@ const AddToy = () => {
 
                     </div>
                 </div>
-                <div className="flex gap-8">
+                <div className="lg:flex gap-8">
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Toy Rating</span>

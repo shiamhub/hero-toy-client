@@ -12,10 +12,7 @@ const Category = () => {
 
   const [totalToy, setTotalToy] = useState(0);
   const [number, setNumber] = useState(0);
-  const [item, setItem] = useState(6);
-
-  console.log(gallery);
-
+  const [item] = useState(6);
 
   const handleCategory = (e) => {
     fetch(`https://assignment-11-server-alpha-seven.vercel.app/allToy/${e.target.innerText}`)

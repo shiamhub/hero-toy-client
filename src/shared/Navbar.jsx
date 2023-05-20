@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import img from './../assets/brand-logo.png'
+import img from './../assets/images/pngtree.png';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -32,9 +32,9 @@ const Navbar = () => {
         <div className="bg-sky-200">
             <div className="navbar w-3/4 mx-auto">
                 <div className="w-full justify-between">
-                    <div className="flex items-start">
-                        <img className="w-28 lg:w-28" src={img} alt="" />
-                        <h1 className="text-3xl font-bold text-yellow-600">Toy</h1>
+                    <div className="lg:flex items-center justify-center">
+                        <img className="w-10 lg:w-14 mx-auto" src={img} alt="" />
+                        <h1 className="text-3xl font-bold text-yellow-600">Hero<span className="text-black">Toy</span></h1>
                         
                     </div>
                     {/* <a className="grow normal-case text-xl">Toy</a> */}

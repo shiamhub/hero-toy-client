@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,7 +13,16 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password);
+
+        setError("");
+
+        if(password.length < 6) {
+            return setError('Password must be at least 6 characters');
+        }
+        else if(!/(?=.*[A-Z])/.test(password)) {
+            return setError('Password must contain at least one uppercase letter');
+        }
+
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
@@ -21,6 +31,7 @@ const Register = () => {
             })
             .catch((error) => {
                 console.log(error.message);
+                setError(error.message);
             })
     }
     const updateUserData = (user, name, photo) => {
@@ -33,6 +44,7 @@ const Register = () => {
             })
             .catch((error) => {
                 console.log(error.message);
+                setError(error.message);
             })
             
     }
@@ -65,6 +77,7 @@ const Register = () => {
                     <input type="password" name="password" placeholder="password" className="input input-bordered" required />
 
                 </div>
+                <p className="text-red-600 my-4">{error}</p>
                 <div className="form-control mt-6">
                     <input type="submit" className="btn btn-primary" value="Register" />
                 </div>

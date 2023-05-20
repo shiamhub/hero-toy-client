@@ -6,7 +6,8 @@ const Banner = () => {
         <div className='relative'>
             <img src={img3} alt="" />
             <div className='absolute top-1/4 lg:ml-12 ml-5'>
-                <h1 className='lg:text-7xl text-xl text-white font-bold'>New Epic Toy</h1>
+                <h1 className='lg:text-7xl text-xl text-white font-bold'>Hero Toy</h1>
+                <h6></h6>
             </div>
             <div className='flex flex-col justify-center items-center absolute top-6 lg:right-1/4 right-12'>
                 <img className='w-5/12 lg:w-3/4' src={img} alt="" />

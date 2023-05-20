@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { googleLogin, login, user } = useContext(AuthContext);
+    const [error, setError] = useState("");
     const navigation = useNavigate();
     const location = useLocation();
 
@@ -19,6 +20,7 @@ const Login = () => {
             })
             .catch((error) => {
                 console.log(error.message);
+                setError(error.message);
             })
     }
 
@@ -27,7 +29,9 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+
+        setError("");
+
         login(email, password)
             .then((result) => {
                 const loggedUser = result.user;
@@ -35,6 +39,7 @@ const Login = () => {
             })
             .catch((error) => {
                 console.log(error.message);
+                setError(error.message);
             })
     }
 
@@ -68,6 +73,7 @@ const Login = () => {
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
 
                             </div>
+                            <p className="text-red-600 my-4">{error}</p>
                             <div className="form-control mt-6">
                                 <input type="submit" className="btn btn-primary" value="Login" />
                             </div>
