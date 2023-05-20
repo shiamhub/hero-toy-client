@@ -3,7 +3,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { ImLocation2 } from 'react-icons/im';
 const Contacts = () => {
     return (
-        <div className='bg-neutral my-16 rounded-xl py-16 grid lg:grid-cols-3 gap-10 lg:gap-0 justify-center items-center'>
+        <div className='bg-neutral my-16 rounded-xl py-12 lg:py-16 grid lg:grid-cols-3 gap-6 lg:gap-0 items-center'>
             <div className='mx-auto'>
                 <FaFacebookSquare className='text-4xl text-white mx-auto'></FaFacebookSquare>
                 <div>

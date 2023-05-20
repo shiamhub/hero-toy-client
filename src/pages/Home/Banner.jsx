@@ -10,9 +10,10 @@ const Banner = () => {
                 <h6></h6>
             </div>
             <div className='flex flex-col justify-center items-center absolute top-6 lg:right-1/4 right-12'>
-                <img className='w-5/12 lg:w-3/4' src={img} alt="" />
+                <img className='w-5/12 lg:w-3/4 lg:hover:w-10/12' src={img} alt="" />
                 <button className='text-white btn btn-primary w-3/12 py-2 rounded-md bg-sky-500'><Link to={`/viewDetails/646798756536f26de66f9e85`}>View Details</Link></button>
             </div>
+            
         </div>
     );
 };

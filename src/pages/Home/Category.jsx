@@ -55,7 +55,7 @@ const Category = () => {
   return (
     <div className='mt-16'>
       <Tabs>
-        <TabList className="flex gap-8">
+        <TabList className="lg:flex gap-2 lg:gap-8 z-10">
           <Tab onClick={handleAllCategory}>All Toys</Tab>
           <Tab onClick={handleCategory}>Avengers</Tab>
           <Tab onClick={handleCategory}>Transformers</Tab>
@@ -65,10 +65,10 @@ const Category = () => {
         <TabPanel></TabPanel>
 
         <TabPanel>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-8'>
             {
-              category.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
-                <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
+              category.map(a => <div key={a._id} className="lg:flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
+                <img className="lg:w-1/4 rounded-xl" src={a?.image} alt="Album" />
                 <div className="card-body">
                   <h2 className="card-title">{a?.name}</h2>
                   <p>Category: {a?.category}</p>
@@ -86,10 +86,10 @@ const Category = () => {
         </TabPanel>
 
         <TabPanel>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-8'>
             {
-              category.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
-                <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
+              category.map(a => <div key={a._id} className="lg:flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
+                <img className="lg:w-1/4 rounded-xl" src={a?.image} alt="Album" />
                 <div className="card-body">
                   <h2 className="card-title">{a?.name}</h2>
                   <p>Category: {a?.category}</p>
@@ -107,10 +107,10 @@ const Category = () => {
         </TabPanel>
 
         <TabPanel>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-8'>
             {
-              category.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
-                <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
+              category.map(a => <div key={a._id} className="lg:flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
+                <img className="lg:w-1/4 rounded-xl" src={a?.image} alt="Album" />
                 <div className="card-body">
                   <h2 className="card-title">{a?.name}</h2>
                   <p>Category: {a?.category}</p>
@@ -127,17 +127,17 @@ const Category = () => {
           </div>
         </TabPanel>
       </Tabs>
-      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${show ? 'hidden' : 'block'}`}>
+      <div className={`grid grid-cols-1 lg:grid-cols-2 lg:gap-8 ${show ? 'hidden' : 'block'}`}>
         {
-          allCategory.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
-            <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
+          allCategory.map(a => <div key={a._id} className="lg:flex justify-between bg-base-100 shadow-xl mb-10 rounded-xl">
+            <img className="lg:w-1/4 rounded-xl" src={a?.image} alt="Album" />
             <div className="card-body">
               <h2 className="card-title">{a?.name}</h2>
               <p>Category: {a?.category}</p>
               <p>Price: {a?.price}$</p>
               <p>Quantity: {a?.quantity}</p>
               <p>Rating: {a?.rating}</p>
-              <div className="flex flex-row justify-between">
+              <div className="flex gap-2 flex-row justify-between items-center">
                 <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
                 <button className="btn btn-primary">Buy Now</button>
               </div>
@@ -151,7 +151,7 @@ const Category = () => {
         }
       </div>
       <h1 className="text-center mt-12 mb-6 lg:my-12 font-bold lg:text-5xl text-2xl">Hero Toy Gallery</h1>
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16'>
+      <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-16'>
         {
           gallery.slice(0, 8).map(a => <Gallery key={a._id} galleryImg={a}></Gallery>)
         }

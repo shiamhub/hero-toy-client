@@ -42,7 +42,7 @@ const AllToys = () => {
 
     return (
         <div className="w-9/12 mx-auto">
-            <div className="flex justify-between items-center my-12">
+            <div className="lg:flex justify-between items-center my-12">
                 <div className="form-control">
                     <div className="input-group">
                         <input type="text" onChange={(e) => setSearchText(e.target.value)} placeholder="Search…" className="input input-bordered" />
@@ -51,7 +51,7 @@ const AllToys = () => {
                         </button>
                     </div>
                 </div>
-                <button onClick={() => handleSort()} className="btn btn-primary">
+                <button onClick={() => handleSort()} className="btn btn-primary lg:mt-0 mt-6">
                     { sort ? show ? "Price Ascending Sort" : "Price Descending Sort" : "Sort by Price" }
                 </button>
             </div>
@@ -76,7 +76,7 @@ const AllToys = () => {
                                 <td>{a?.sellerName || 'none'}</td>
                                 <td>{a?.category}</td>
                                 <td>{a?.quantity}</td>
-                                <td>{a?.price}</td>
+                                <td>{a?.price}$</td>
                                 <td className="text-center"><Link to={`/viewDetails/${a._id}`}><button className="btn btn-sm">View Details</button></Link></td>
 
                             </tr>)

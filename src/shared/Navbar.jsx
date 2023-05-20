@@ -30,19 +30,18 @@ const Navbar = () => {
 
     return (
         <div className="bg-sky-200">
-            <div className="navbar w-3/4 mx-auto">
+            <div className="navbar w-10/12 lg:w-3/4 mx-auto">
                 <div className="w-full justify-between">
                     <div className="lg:flex items-center justify-center">
                         <img className="w-10 lg:w-14 mx-auto" src={img} alt="" />
                         <h1 className="text-3xl font-bold text-yellow-600">Hero<span className="text-black">Toy</span></h1>
                         
                     </div>
-                    {/* <a className="grow normal-case text-xl">Toy</a> */}
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40">
                             {navItems}
                         </ul>
                     </div>
@@ -60,12 +59,13 @@ const Navbar = () => {
                                     <img src={user.photoURL} />
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                <li>{user.displayName}</li>
+                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-">
+                                <li><a>{user.displayName}</a></li>
                                 <li>
-                                    {user.email}
+                                    <a>{user.email}</a>
+                                    
                                 </li>
-                                <li onClick={handleLogout}>Logout</li>
+                                <li onClick={handleLogout}><a>Logout</a></li>
                             </ul>
                         </div> : <Link to="/login" className="btn">Login</Link>
                     }

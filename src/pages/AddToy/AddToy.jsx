@@ -52,7 +52,7 @@ const AddToy = () => {
 
     return (
         <div className="bg-base-200">
-            <form onSubmit={handleSubmit} className="card-body w-9/12 mx-auto">
+            <form onSubmit={handleSubmit} className="card-body lg:w-9/12 mx-auto">
                 <div className="lg:flex gap-8">
                     <div className="form-control w-full">
                         <label className="label">
