@@ -10,6 +10,10 @@ const Category = () => {
   const [gallery, setGallery] = useState([]);
   const [show, setShow] = useState(false);
 
+  const [totalToy, setTotalToy] = useState(0);
+  const [number, setNumber] = useState(0);
+  const [item, setItem] = useState(6);
+
   console.log(gallery);
 
 
@@ -25,13 +29,31 @@ const Category = () => {
   }
 
   useEffect(() => {
-    fetch('https://assignment-11-server-alpha-seven.vercel.app/allToys')
+    fetch(`https://assignment-11-server-alpha-seven.vercel.app/pageAllToys?page=${number}&limit=${item}`)
       .then((res) => res.json())
       .then((data) => {
         setAllCategory(data);
-        setGallery(data);
       });
-  }, [])
+  }, [number, item]);
+  
+  useEffect(() => {
+    fetch('https://assignment-11-server-alpha-seven.vercel.app/totalToys')
+      .then((res) => res.json())
+      .then((data) => {
+        setTotalToy(data.totalToys);
+      })
+  }, []);
+  const totalPage = Math.ceil(totalToy / item);
+  const pageNumbers = [...Array(totalPage).keys()];
+
+  useEffect(() => {
+    fetch('https://assignment-11-server-alpha-seven.vercel.app/allToys')
+      .then((res) => res.json())
+      .then((data) => {
+        setGallery(data);
+      })
+  }, []);
+
 
   return (
     <div>
@@ -124,6 +146,11 @@ const Category = () => {
               </div>
             </div>
           </div>)
+        }
+      </div>
+      <div className={`flex gap-3 justify-center ${show ? 'hidden' : 'block'}`}>
+        {
+          pageNumbers.map(a => <button key={a} className={`btn ${number === a ? 'btn-primary' : 'btn-outline'}`} onClick={() => setNumber(a)}>{a + 1}</button>)
         }
       </div>
       <h1 className='text-center lg:text-5xl text-3xl lg:mb-10 mt-16 mb-6'>Hero Toy Gallery</h1>

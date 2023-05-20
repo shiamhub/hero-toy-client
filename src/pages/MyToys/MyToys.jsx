@@ -7,6 +7,7 @@ import useTitle from "../../hooks/useTitle";
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToy, setMyToy] = useState([]);
+    
     useEffect(() => {
         fetch(`https://assignment-11-server-alpha-seven.vercel.app/myToys?email=${user?.email}`)
             .then(res => res.json())
