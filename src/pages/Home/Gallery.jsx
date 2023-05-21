@@ -10,7 +10,7 @@ import { Pagination } from "swiper";
 const Gallery = ({ img }) => {
 
   return (
-    <div className="mb-16">
+    <div className="my-16 lg:my-28">
       <h1 className="text-center mt-12 mb-6 lg:my-12 font-bold lg:text-5xl text-2xl">Hero Toy Gallery</h1>
       <Swiper
         slidesPerView={2}

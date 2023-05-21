@@ -9,7 +9,7 @@ const Review = () => {
     return (
         <div>
             <h1 className="text-center mt-12 mb-6 lg:my-12 font-bold lg:text-5xl text-2xl">Some Toy Review</h1>
-            <div data-aos="fade-right" data-aos-duration="1000" className='bg-blue-200 border-r-4 border-r-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12 flex flex-col lg:justify-end ml-auto text-right mb-6 lg:mb-0'>
+            <div data-aos="fade-up" data-aos-duration="1000" className='bg-blue-200 border-r-4 border-r-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12 flex flex-col lg:justify-end ml-auto text-right mb-6 lg:mb-0'>
                 <div className="avatar justify-end">
                     <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={img} alt="" />
@@ -23,7 +23,7 @@ const Review = () => {
                 <h1 className='mt-4 text-xl font-medium'>Name of the Toy: Super Robot</h1>
                 <p className=''>The Super Robot is an action-packed toy that brings excitement and fun to children aged 5-10.</p>
             </div>
-            <div data-aos="fade-left" data-aos-duration="1000" className='bg-blue-200 border-l-4 border-l-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12 mb-6 lg:mb-0'>
+            <div data-aos="fade-up" data-aos-duration="1000" className='bg-blue-200 border-l-4 border-l-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12 mb-6 lg:mb-0'>
                 <div className="avatar">
                     <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={img2} alt="" />
@@ -37,7 +37,7 @@ const Review = () => {
                 <h1 className='mt-4 text-xl font-medium'>Name of the Toy: Super Robot</h1>
                 <p>The Super Robot is an action-packed toy that brings excitement and fun to children aged 5-10.</p>
             </div>
-            <div data-aos="fade-right" data-aos-duration="1000" className='bg-blue-200 border-r-4 border-r-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12 flex flex-col lg:justify-end ml-auto text-right mb-6 lg:mb-0'>
+            <div data-aos="fade-up" data-aos-duration="1000" className='bg-blue-200 border-r-4 border-r-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12 flex flex-col lg:justify-end ml-auto text-right mb-6 lg:mb-0'>
                 <div className="avatar justify-end">
                     <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={img3} alt="" />
@@ -51,7 +51,7 @@ const Review = () => {
                 <h1 className='mt-4 text-xl font-medium'>Name of the Toy: Super Robot</h1>
                 <p>The Super Robot is an action-packed toy that brings excitement and fun to children aged 5-10.</p>
             </div>
-            <div data-aos="fade-left" data-aos-duration="1000" className='bg-blue-200 border-l-4 border-l-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12'>
+            <div data-aos="fade-up" data-aos-duration="1000" className='bg-blue-200 border-l-4 border-l-blue-800 rounded-xl p-8 w-10/12 lg:w-5/12'>
                 <div className="avatar">
                     <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src={img4} alt="" />
