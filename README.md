@@ -1,8 +1,8 @@
 ### This is action toy website ----------------
 
 live side:
-    1.firebase link:
-    2.Netlify link:
+    1.firebase link: https://assignment-11-f6226.web.app/
+    2.Netlify link: https://deluxe-marzipan-811759.netlify.app/
 
 ***/
 
