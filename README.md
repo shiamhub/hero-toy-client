@@ -7,24 +7,24 @@ live side:
 ***/
 
 1. Home page:
-    * Banner section: 
-    * Shop by category:
-    * Gallery Section:
+    * Banner section: This page is intro page.
+    * Shop by category: This page is category by a toy shop.
+    * Gallery Section: This page is our toy images gallery.
     
 Extra Section are,
-    * Review section:
-    * Contact section:
+    * Review section: Our toy review.
+    * Contact section: Available payment and contact us.
 
 2. All Toys page: This page are show 20 toy in all toy collection.
-    -- On this page implement a search system.
+    -- On this page implement a search system only name.
     -- On this page you are see view details in a toy. This page is private routes. if you are login you see this page.
 
 3. My Toys: This page is private routes. if you are login you see this page.
-    -- Implement Update a toy.
-    -- Implement Delete a toy.
+    -- Implement Update a toy in SweetAlert.
+    -- Implement Delete a toy in SweetAlert.
 
 4. Add A Toy: This page is private routes. if you are login you see this page.
-    -- You are post a toy.
+    -- You are post a toy in SweetAlert.
 
 5. Blogs page: Some question answer.
 

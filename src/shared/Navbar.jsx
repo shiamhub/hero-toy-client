@@ -51,9 +51,11 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
+                
                 <div className="navbar-end">
                     {
-                        user ? <div title={user.displayName} className="dropdown dropdown-end ml-4">
+                        user ? <div className="flex items-center">
+                            <div title={user.displayName} className="dropdown dropdown-end ml-4">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img src={user.photoURL} />
@@ -67,6 +69,9 @@ const Navbar = () => {
                                 </li>
                                 <li onClick={handleLogout}><a>Logout</a></li>
                             </ul>
+                            
+                        </div>
+                        <Link to="/login" className="btn ml-3">Login</Link>
                         </div> : <Link to="/login" className="btn">Login</Link>
                     }
 

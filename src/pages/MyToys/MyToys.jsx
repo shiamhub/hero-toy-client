@@ -63,27 +63,10 @@ const MyToys = () => {
     return (
         <div className="w-9/12 mx-auto mb-16">
             <div className="lg:flex gap-6 my-16">
-                <button onClick={() => handleSortByAscending()} className="btn btn-primary">Sort By Price Ascending</button>
-                <button onClick={() => handleSortByDescending()} className="btn btn-primary mt-6 lg:mt-0">Sort By Price Descending</button>
+                <button onClick={() => handleSortByDescending()} className="btn btn-primary mt-6 lg:mt-0">Sort By Price Ascending</button>
+                <button onClick={() => handleSortByAscending()} className="btn btn-primary">Sort By Price Descending</button>
             </div>
-            {/* <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-                {
-                    myToy.map(a => <div key={a._id} className="flex justify-between bg-base-100 shadow-xl mt-10 rounded-xl">
-                        <img className="w-1/4 rounded-xl" src={a?.image} alt="Album" />
-                        <div className="card-body">
-                            <h2 className="card-title">{a?.name}</h2>
-                            <p>Category: {a?.category}</p>
-                            <p>Price: {a?.price}$</p>
-                            <p>Quantity: {a?.quantity}</p>
-                            <p>Rating: {a?.rating}</p>
-                            <div className="flex flex-row justify-between">
-                                <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
-                                <button onClick={() => handleDelete(a._id)} className="btn btn-primary">Delete</button>
-                            </div>
-                        </div>
-                    </div>)
-                }
-            </div> */}
+            
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -107,8 +90,8 @@ const MyToys = () => {
                                 <td>{a?.quantity}</td>
                                 <td>{a?.price}$</td>
                                 <td className="text-center">
-                                    <button className="btn btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
-                                    <button onClick={() => handleDelete(a._id)} className="btn btn-primary ml-3">Delete</button>
+                                    <button className="btn btn-sm btn-primary"><Link to={`/updateMyToy/${a._id}`}>Update</Link></button>
+                                    <button onClick={() => handleDelete(a._id)} className="btn btn-sm btn-primary ml-3">Delete</button>
                                 </td>
 
                             </tr>)

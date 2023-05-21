@@ -4,6 +4,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import 'react-tabs/style/react-tabs.css';
 import Gallery from './Gallery';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css'
 const Category = () => {
   const [category, setCategory] = useState([]);
   const [allCategory, setAllCategory] = useState([]);
@@ -32,7 +34,7 @@ const Category = () => {
         setAllCategory(data);
       });
   }, [number, item]);
-  
+
   useEffect(() => {
     fetch('https://assignment-11-server-alpha-seven.vercel.app/totalToys')
       .then((res) => res.json())
@@ -74,8 +76,10 @@ const Category = () => {
                   <p>Category: {a?.category}</p>
                   <p>Price: {a?.price}$</p>
                   <p>Quantity: {a?.quantity}</p>
-                  <p>Rating: {a?.rating}</p>
-                  <div className="flex flex-row justify-between">
+                  <div className="flex items-center gap-1 w-28">
+                <p>{a?.rating}</p>
+                <Rating className='' value={Math.fround(a?.rating)} readOnly />
+              </div>                  <div className="flex flex-row justify-between">
                     <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
                     <button className="btn btn-primary">Buy Now</button>
                   </div>
@@ -95,8 +99,10 @@ const Category = () => {
                   <p>Category: {a?.category}</p>
                   <p>Price: {a?.price}$</p>
                   <p>Quantity: {a?.quantity}</p>
-                  <p>Rating: {a?.rating}</p>
-                  <div className="flex flex-row justify-between">
+                  <div className="flex items-center gap-1 w-28">
+                <p>{a?.rating}</p>
+                <Rating className='' value={Math.fround(a?.rating)} readOnly />
+              </div>                  <div className="flex flex-row justify-between">
                     <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
                     <button className="btn btn-primary">Buy Now</button>
                   </div>
@@ -116,8 +122,10 @@ const Category = () => {
                   <p>Category: {a?.category}</p>
                   <p>Price: {a?.price}$</p>
                   <p>Quantity: {a?.quantity}</p>
-                  <p>Rating: {a?.rating}</p>
-                  <div className="flex flex-row justify-between">
+                  <div className="flex items-center gap-1 w-28">
+                <p>{a?.rating}</p>
+                <Rating className='' value={Math.fround(a?.rating)} readOnly />
+              </div>                  <div className="flex flex-row justify-between">
                     <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
                     <button className="btn btn-primary">Buy Now</button>
                   </div>
@@ -136,7 +144,10 @@ const Category = () => {
               <p>Category: {a?.category}</p>
               <p>Price: {a?.price}$</p>
               <p>Quantity: {a?.quantity}</p>
-              <p>Rating: {a?.rating}</p>
+              <div className="flex items-center gap-1 w-28">
+                <p>{a?.rating}</p>
+                <Rating className='' value={Math.fround(a?.rating)} readOnly />
+              </div>
               <div className="flex gap-2 flex-row justify-between items-center">
                 <Link to={`/viewDetails/${a._id}`}><button className="btn btn-primary">View Details</button></Link>
                 <button className="btn btn-primary">Buy Now</button>
@@ -150,12 +161,9 @@ const Category = () => {
           pageNumbers.map(a => <button key={a} className={`btn ${number === a ? 'btn-primary' : 'btn-outline'}`} onClick={() => setNumber(a)}>{a + 1}</button>)
         }
       </div>
-      <h1 className="text-center mt-12 mb-6 lg:my-12 font-bold lg:text-5xl text-2xl">Hero Toy Gallery</h1>
-      <div className='grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-16'>
-        {
-          gallery.slice(0, 8).map(a => <Gallery key={a._id} galleryImg={a}></Gallery>)
-        }
-      </div>
+
+      <Gallery img={gallery}></Gallery>
+
     </div>
   );
 };

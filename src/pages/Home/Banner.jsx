@@ -7,7 +7,7 @@ const Banner = () => {
             <img src={img3} alt="" />
             <div className='absolute top-1/4 lg:ml-12 ml-5'>
                 <h1 className='lg:text-7xl text-xl text-white font-bold'>Hero Toy</h1>
-                <h6></h6>
+                <h6 className='text-white mt-0 lg:mt-4 w-1/2'>The Robot is an action-packed toy that brings excitement and fun to children aged 5-10.</h6>
             </div>
             <div className='flex flex-col justify-center items-center absolute top-6 lg:right-1/4 right-12'>
                 <img className='w-5/12 lg:w-3/4 hover:w-1/2 lg:hover:w-10/12' src={img} alt="" />
